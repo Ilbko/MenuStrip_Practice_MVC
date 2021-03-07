@@ -154,6 +154,7 @@
             this.параметрыСтраницыToolStripMenuItem.Name = "параметрыСтраницыToolStripMenuItem";
             this.параметрыСтраницыToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.параметрыСтраницыToolStripMenuItem.Text = "Параметры страницы";
+            this.параметрыСтраницыToolStripMenuItem.Click += new System.EventHandler(this.параметрыСтраницыToolStripMenuItem_Click);
             // 
             // печатьToolStripMenuItem
             // 
@@ -161,6 +162,7 @@
             this.печатьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.печатьToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.печатьToolStripMenuItem.Text = "Печать...";
+            this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -172,6 +174,7 @@
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // правкаToolStripMenuItem
             // 
