@@ -65,8 +65,10 @@ namespace MenuStrip_Practice_MVC.Model
             }
             else
             {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Text|*.txt";
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Text|*.txt"
+                };
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -86,8 +88,10 @@ namespace MenuStrip_Practice_MVC.Model
 
         public static void SaveAs(TextBox textbox)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text|*.txt";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Text|*.txt"
+            };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -98,10 +102,12 @@ namespace MenuStrip_Practice_MVC.Model
 
         public static void Print()
         {
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.AllowSomePages = true;
-            printDialog.ShowHelp = true;
-            printDialog.AllowSelection = true;
+            PrintDialog printDialog = new PrintDialog
+            {
+                AllowSomePages = true,
+                ShowHelp = true,
+                AllowSelection = true
+            };
 
             if (printDialog.ShowDialog() == DialogResult.OK)
             {
@@ -119,11 +125,12 @@ namespace MenuStrip_Practice_MVC.Model
             form.Close();
         }
 
-        public static void PageParams(TextBox textbox)
+        public static void PageParams()
         {
-            PageSetupDialog pageSetupDialog = new PageSetupDialog();
-
-            pageSetupDialog.PageSettings = new PageSettings();
+            PageSetupDialog pageSetupDialog = new PageSetupDialog
+            {
+                PageSettings = new PageSettings()
+            };
 
             if (pageSetupDialog.ShowDialog() == DialogResult.OK)
             {

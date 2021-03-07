@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MenuStrip_Practice_MVC.Control
 {
@@ -19,7 +20,11 @@ namespace MenuStrip_Practice_MVC.Control
                                 ToolStripMenuItem undo,
                                 ToolStripMenuItem cut,
                                 ToolStripMenuItem copy,
-                                ToolStripMenuItem paste)
+                                ToolStripMenuItem paste,
+                                ToolStripMenuItem delete,
+                                ToolStripMenuItem find,
+                                ToolStripMenuItem findEarlier,
+                                ToolStripMenuItem findFurther)
         {
             if (form.Text != "Блокнот" && form.Text[0] != '*')
             {
@@ -33,6 +38,10 @@ namespace MenuStrip_Practice_MVC.Control
                 cut.Enabled = true;
                 copy.Enabled = true;
                 paste.Enabled = true;
+                delete.Enabled = true;
+                find.Enabled = true;
+                findEarlier.Enabled = true;
+                findFurther.Enabled = true;
             }
             else
             {
@@ -40,27 +49,58 @@ namespace MenuStrip_Practice_MVC.Control
                 cut.Enabled = false;
                 copy.Enabled = false;
                 paste.Enabled = false;
+                delete.Enabled = false;
+                find.Enabled = false;
+                findEarlier.Enabled = false;
+                findFurther.Enabled = false;
             }
         }
 
-        public void Undo(TextBox textbox)
+        public void Undo(TextBox textbox) => textbox.Undo();
+
+        public void Cut(TextBox textbox) => textbox.Cut();
+
+        public void Copy(TextBox textbox) => textbox.Copy();
+
+        public void Paste(TextBox textbox) => textbox.Paste();
+
+        public void Delete(TextBox textbox) => textbox.Paste(string.Empty);
+
+        public void TextBoxMouse(TextBox textbox, ToolStripMenuItem bingSearch)
         {
-            textbox.Undo();
+            if (textbox.SelectionLength > 0)
+            {
+                bingSearch.Enabled = true;
+            }
+            else
+            {
+                bingSearch.Enabled = false;
+            }
         }
 
-        public void Cut(TextBox textbox)
-        {
-            textbox.Cut();
-        }
+        public void BingSearch(TextBox textbox) => System.Diagnostics.Process.Start($"https://www.bing.com/search?q=" + textbox.SelectedText);
 
-        public void Copy(TextBox textbox)
+        public void WordWrap(TextBox textbox, ToolStripMenuItem goTo, ToolStripMenuItem wordWrap)
         {
-            textbox.Copy();
-        }
+            if (wordWrap.Checked == true)
+            {
+                //wordWrap.Image = global::MenuStrip_Practice_MVC.Properties.Resources.checked_icon;
+                wordWrap.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+                goTo.Enabled = true;
+                textbox.WordWrap = false;
 
-        public void Paste(TextBox textbox)
-        {
-            textbox.Paste();
+                wordWrap.Checked = false;
+            }
+            else if (wordWrap.Checked == false)
+            {
+                //wordWrap.Image = null;
+                wordWrap.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                goTo.Enabled = false;
+                textbox.WordWrap = true;
+
+                wordWrap.Checked = true;
+            }
         }
+        
     }
 }

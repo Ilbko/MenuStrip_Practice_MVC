@@ -15,7 +15,7 @@ namespace MenuStrip_Practice_MVC
 {
     public partial class Form1 : Form
     {
-        MyLogic logic = new MyLogic();
+        readonly MyLogic logic = new MyLogic();
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +35,8 @@ namespace MenuStrip_Practice_MVC
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.OpenFile(textBox1, this);
 
         private void textBox1_TextChanged(object sender, EventArgs e) => logic.TextChanged(this, (sender as TextBox),
-        отменитьToolStripMenuItem, вырезатьToolStripMenuItem, копироватьToolStripMenuItem, вставитьToolStripMenuItem);
+        отменитьToolStripMenuItem, вырезатьToolStripMenuItem, копироватьToolStripMenuItem, вставитьToolStripMenuItem,
+        удалитьToolStripMenuItem, найтиToolStripMenuItem, найтиДалееToolStripMenuItem, найтиРанееToolStripMenuItem);
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.SaveFile(textBox1, this);
 
@@ -53,6 +54,19 @@ namespace MenuStrip_Practice_MVC
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.Exit(this);
 
-        private void параметрыСтраницыToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.PageParams(textBox1);
+        private void параметрыСтраницыToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.PageParams();
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Delete(textBox1);
+
+        private void textBox1_MouseMove(object sender, MouseEventArgs e) => logic.TextBoxMouse(textBox1, поискСПомощьюBingToolStripMenuItem);
+
+        private void поискСПомощьюBingToolStripMenuItem_Click(object sender, EventArgs e) => logic.BingSearch(textBox1);
+
+        private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e) => logic.WordWrap(textBox1, перейтиToolStripMenuItem, переносПоСловамToolStripMenuItem);
+
+        private void перейтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

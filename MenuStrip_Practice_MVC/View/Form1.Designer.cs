@@ -247,6 +247,7 @@
             this.удалитьToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -260,6 +261,7 @@
             this.поискСПомощьюBingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.поискСПомощьюBingToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.поискСПомощьюBingToolStripMenuItem.Text = "Поиск с помощью Bing...";
+            this.поискСПомощьюBingToolStripMenuItem.Click += new System.EventHandler(this.поискСПомощьюBingToolStripMenuItem_Click);
             // 
             // найтиToolStripMenuItem
             // 
@@ -298,6 +300,7 @@
             this.перейтиToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.перейтиToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.перейтиToolStripMenuItem.Text = "Перейти...";
+            this.перейтиToolStripMenuItem.Click += new System.EventHandler(this.перейтиToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -332,6 +335,7 @@
             this.переносПоСловамToolStripMenuItem.Name = "переносПоСловамToolStripMenuItem";
             this.переносПоСловамToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.переносПоСловамToolStripMenuItem.Text = "Перенос по словам";
+            this.переносПоСловамToolStripMenuItem.Click += new System.EventHandler(this.переносПоСловамToolStripMenuItem_Click);
             // 
             // шрифтToolStripMenuItem
             // 
@@ -348,7 +352,9 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(800, 425);
             this.textBox1.TabIndex = 1;
+            this.textBox1.WordWrap = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseMove);
             // 
             // contextMenuStrip1
             // 
