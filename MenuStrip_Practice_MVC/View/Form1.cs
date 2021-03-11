@@ -66,7 +66,16 @@ namespace MenuStrip_Practice_MVC
 
         private void перейтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Communication.MainForm_coords = this.Location;
+            logic.MoveTo(textBox1);
+            textBox1.SelectionStart = Convert.ToInt32(Communication.Cursor_position);
+            Communication.Cursor_position = 0;
         }
+
+        private void выделитьВсеToolStripMenuItem_Click(object sender, EventArgs e) => logic.SelectAll(textBox1);
+
+        private void времяИДатаToolStripMenuItem_Click(object sender, EventArgs e) => logic.TimeAndData(textBox1);
+
+        private void шрифтToolStripMenuItem_Click(object sender, EventArgs e) => logic.FontSelection(textBox1);
     }
 }

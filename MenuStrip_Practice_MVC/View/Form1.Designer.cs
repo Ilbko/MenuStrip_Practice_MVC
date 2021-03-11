@@ -313,6 +313,7 @@
             this.выделитьВсеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.выделитьВсеToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.выделитьВсеToolStripMenuItem.Text = "Выделить все";
+            this.выделитьВсеToolStripMenuItem.Click += new System.EventHandler(this.выделитьВсеToolStripMenuItem_Click);
             // 
             // времяИДатаToolStripMenuItem
             // 
@@ -320,6 +321,7 @@
             this.времяИДатаToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.времяИДатаToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.времяИДатаToolStripMenuItem.Text = "Время и дата";
+            this.времяИДатаToolStripMenuItem.Click += new System.EventHandler(this.времяИДатаToolStripMenuItem_Click);
             // 
             // форматToolStripMenuItem
             // 
@@ -342,6 +344,7 @@
             this.шрифтToolStripMenuItem.Name = "шрифтToolStripMenuItem";
             this.шрифтToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.шрифтToolStripMenuItem.Text = "Шрифт...";
+            this.шрифтToolStripMenuItem.Click += new System.EventHandler(this.шрифтToolStripMenuItem_Click);
             // 
             // textBox1
             // 

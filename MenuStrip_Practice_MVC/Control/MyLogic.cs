@@ -102,5 +102,40 @@ namespace MenuStrip_Practice_MVC.Control
             }
         }
         
+        public void MoveTo(TextBox textbox)
+        {
+            /*FormMoveTo moveTo = new FormMoveTo();
+            moveTo.Show();*/
+
+            Communication.Working_text = textbox.Lines;
+            new FormMoveTo().ShowDialog(); 
+        }
+
+        public void FontSelection(TextBox textbox)
+        {
+            FontDialog fontDialog = new FontDialog();
+
+            fontDialog.ShowColor = true;
+
+            fontDialog.Color = textbox.ForeColor;
+            fontDialog.Font = textbox.Font;
+            
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                textbox.Font = fontDialog.Font;
+                textbox.ForeColor = fontDialog.Color;
+            }
+        }
+
+        public void TimeAndData(TextBox textbox)
+        {
+            string newText = textbox.Text.Insert(textbox.SelectionStart, DateTime.Now.ToString());
+            textbox.Text = newText;
+        }
+
+        public void SelectAll(TextBox textbox)
+        {
+            textbox.SelectAll();
+        }
     }
 }
