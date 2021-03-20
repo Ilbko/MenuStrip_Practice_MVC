@@ -9,10 +9,17 @@ namespace MenuStrip_Practice_MVC.Control
 {
     public static class Communication
     {
+        public static Point MainForm_coords;
+
         #region Средства коммуникации между главным окном и окном перехода на строку
+        #endregion
+
         public static string[] Working_text;
         public static Int32 Cursor_position;
-        public static Point MainForm_coords;
+
+        #region Средства коммуникации между главным окном и окном поиска
+        public static Int32 Selection_length;
+        public static string Search_string = string.Empty;
         #endregion
     }
 }

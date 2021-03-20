@@ -77,5 +77,13 @@ namespace MenuStrip_Practice_MVC
         private void времяИДатаToolStripMenuItem_Click(object sender, EventArgs e) => logic.TimeAndData(textBox1);
 
         private void шрифтToolStripMenuItem_Click(object sender, EventArgs e) => logic.FontSelection(textBox1);
+
+        private void найтиToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 0);
+
+        private void найтиДалееToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 1);
+
+        private void найтиРанееToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 2);
+
+        //internal void TextBoxRedirection() => logic.TextSelection(textBox1, Communication.Cursor_position, Communication.Selection_length);
     }
 }

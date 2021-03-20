@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MenuStrip_Practice_MVC.View;
 
 namespace MenuStrip_Practice_MVC.Control
 {
@@ -26,6 +27,8 @@ namespace MenuStrip_Practice_MVC.Control
                                 ToolStripMenuItem findEarlier,
                                 ToolStripMenuItem findFurther)
         {
+            Communication.Working_text = textbox.Lines;
+
             if (form.Text != "Блокнот" && form.Text[0] != '*')
             {
                 string name = "*" + form.Text;
@@ -76,6 +79,7 @@ namespace MenuStrip_Practice_MVC.Control
             {
                 bingSearch.Enabled = false;
             }
+            Communication.Cursor_position = textbox.SelectionStart;
         }
 
         public void BingSearch(TextBox textbox) => System.Diagnostics.Process.Start($"https://www.bing.com/search?q=" + textbox.SelectedText);
@@ -113,13 +117,14 @@ namespace MenuStrip_Practice_MVC.Control
 
         public void FontSelection(TextBox textbox)
         {
-            FontDialog fontDialog = new FontDialog();
+            FontDialog fontDialog = new FontDialog
+            {
+                ShowColor = true,
 
-            fontDialog.ShowColor = true;
+                Color = textbox.ForeColor,
+                Font = textbox.Font
+            };
 
-            fontDialog.Color = textbox.ForeColor;
-            fontDialog.Font = textbox.Font;
-            
             if (fontDialog.ShowDialog() == DialogResult.OK)
             {
                 textbox.Font = fontDialog.Font;
@@ -136,6 +141,39 @@ namespace MenuStrip_Practice_MVC.Control
         public void SelectAll(TextBox textbox)
         {
             textbox.SelectAll();
+        }
+
+        public void Find(TextBox textbox, Form1 form, int mode)
+        {
+            FormCollection fc = Application.OpenForms;
+
+            bool foundOpen = false;
+
+            foreach(Form item in fc)
+            {
+                if (item.Name == "FormFind")
+                    foundOpen = true;
+            }
+
+            if (mode == 0)
+            {
+                if (!foundOpen)
+                    new FormFind(form).Show();
+                else
+                    fc["FormFind"].Focus();
+            }
+            else if (mode == 1 && Communication.Search_string != string.Empty)
+            {
+                new FormFind(form).SearchDown();
+            }
+            else if (mode == 2 && Communication.Search_string != string.Empty)
+            {
+                new FormFind(form).SearchUp();
+            }
+            else
+            {
+                new FormFind(form).Show();
+            }
         }
     }
 }

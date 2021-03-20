@@ -270,6 +270,7 @@
             this.найтиToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.найтиToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.найтиToolStripMenuItem.Text = "Найти...";
+            this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
             // 
             // найтиДалееToolStripMenuItem
             // 
@@ -278,6 +279,7 @@
             this.найтиДалееToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.найтиДалееToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.найтиДалееToolStripMenuItem.Text = "Найти далее";
+            this.найтиДалееToolStripMenuItem.Click += new System.EventHandler(this.найтиДалееToolStripMenuItem_Click);
             // 
             // найтиРанееToolStripMenuItem
             // 
@@ -286,6 +288,7 @@
             this.найтиРанееToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
             this.найтиРанееToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.найтиРанееToolStripMenuItem.Text = "Найти ранее";
+            this.найтиРанееToolStripMenuItem.Click += new System.EventHandler(this.найтиРанееToolStripMenuItem_Click);
             // 
             // заменитьToolStripMenuItem
             // 

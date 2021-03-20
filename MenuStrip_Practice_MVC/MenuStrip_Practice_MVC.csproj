@@ -48,6 +48,13 @@
   <ItemGroup>
     <Compile Include="Control\Communication.cs" />
     <Compile Include="Control\MyLogic.cs" />
+    <Compile Include="Model\Command.cs" />
+    <Compile Include="View\FormFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormFind.Designer.cs">
+      <DependentUpon>FormFind.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormMoveTo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\FormFind.resx">
+      <DependentUpon>FormFind.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormMoveTo.resx">
       <DependentUpon>FormMoveTo.cs</DependentUpon>
     </EmbeddedResource>
