@@ -55,6 +55,12 @@ namespace MenuStrip_Practice_MVC.View
             string allText = string.Join("\r\n", Communication.Working_text);
 
             string searchText = Communication.Search_string;
+            if (!checkBox1.Checked)
+            {
+                allText = allText.ToLower();
+                searchText = searchText.ToLower();
+            }
+
             string selectionText = string.Empty;
             if (Communication.Cursor_position < allText.Length)
             {
@@ -110,6 +116,12 @@ namespace MenuStrip_Practice_MVC.View
             string allText = string.Join("\r\n", Communication.Working_text);
 
             string searchText = Communication.Search_string;
+            if (!checkBox1.Checked)
+            {
+                allText = allText.ToLower();
+                searchText = searchText.ToLower();
+            }
+
             string selectionText = allText.Substring(0, Communication.Cursor_position);
 
             bool check = true;
