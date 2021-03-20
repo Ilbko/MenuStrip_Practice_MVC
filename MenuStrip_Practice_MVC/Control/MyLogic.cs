@@ -143,7 +143,7 @@ namespace MenuStrip_Practice_MVC.Control
             textbox.SelectAll();
         }
 
-        public void Find(TextBox textbox, Form1 form, int mode)
+        public void Find(Form1 form, int mode)
         {
             FormCollection fc = Application.OpenForms;
 
@@ -164,16 +164,28 @@ namespace MenuStrip_Practice_MVC.Control
             }
             else if (mode == 1 && Communication.Search_string != string.Empty)
             {
-                new FormFind(form).SearchDown();
+                //new FormFind(form).SearchDown();
+                FormFind formFind = new FormFind(form);
+                formFind.SearchDown();
+                GC.Collect(GC.GetGeneration(formFind));
             }
             else if (mode == 2 && Communication.Search_string != string.Empty)
             {
-                new FormFind(form).SearchUp();
+                //new FormFind(form).SearchUp();
+                FormFind formFind = new FormFind(form);
+                formFind.SearchUp();
+                GC.Collect(GC.GetGeneration(formFind));
             }
             else
             {
                 new FormFind(form).Show();
             }
+        }
+
+        public void Replace (System.Drawing.Point location, Form1 form)
+        {
+            Communication.MainForm_coords = location;
+            new FormReplace(form).Show();
         }
     }
 }

@@ -296,6 +296,7 @@
             this.заменитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.заменитьToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.заменитьToolStripMenuItem.Text = "Заменить...";
+            this.заменитьToolStripMenuItem.Click += new System.EventHandler(this.заменитьToolStripMenuItem_Click);
             // 
             // перейтиToolStripMenuItem
             // 

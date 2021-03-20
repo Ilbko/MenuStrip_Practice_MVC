@@ -14,6 +14,7 @@ namespace MenuStrip_Practice_MVC.Control
         #region Средства коммуникации между главным окном и окном перехода на строку
         #endregion
 
+        //Эти две переменных используются и для того, и для другого.
         public static string[] Working_text;
         public static Int32 Cursor_position;
 

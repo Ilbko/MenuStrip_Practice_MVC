@@ -14,9 +14,9 @@ namespace MenuStrip_Practice_MVC.Model
         {
             Communication.MainForm_coords = location;
             //Communication.Cursor_position = textbox.SelectionStart;
-            Communication.Working_text = textbox.Lines;
+            //Communication.Working_text = textbox.Lines;
             MyLogic logic = new MyLogic();
-            logic.Find(textbox, form, mode);
+            logic.Find(form, mode);
         }
     }
 }

@@ -84,6 +84,8 @@ namespace MenuStrip_Practice_MVC
 
         private void найтиРанееToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 2);
 
+        private void заменитьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Replace(this.Location, this);
+
         //internal void TextBoxRedirection() => logic.TextSelection(textBox1, Communication.Cursor_position, Communication.Selection_length);
     }
 }
