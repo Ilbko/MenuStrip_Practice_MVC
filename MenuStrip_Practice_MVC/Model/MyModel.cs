@@ -9,14 +9,19 @@ using System.Drawing.Printing;
 
 namespace MenuStrip_Practice_MVC.Model
 {
+    //Класс модели
     public static class MyModel
     {
+        //Путь и ленивый принтДокумент (печать)
         private static string path = string.Empty;
-        private static Lazy<PrintDocument> printDoc; 
+        private static Lazy<PrintDocument> printDoc;
+
+        //Открытие файла
         public static void OpenFile(TextBox textbox, Form1 form)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
+            //Если файл был открыт, то копируется его текст и устанавливается его имя на главное окно
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 /*path = openFileDialog.FileName;
@@ -49,10 +54,13 @@ namespace MenuStrip_Practice_MVC.Model
             }
         }
 
+        //Сохранение файла
         public static void SaveFile(TextBox textbox, Form1 form)
         {
+            //Если путь не пустой
             if (path != string.Empty)
             {
+                //Запись текста и изменение имени главного окна
                 File.WriteAllText(path, textbox.Text, Encoding.Default);
 
                 string name = string.Empty;
@@ -63,6 +71,7 @@ namespace MenuStrip_Practice_MVC.Model
 
                 form.Text = name;
             }
+            //Если путь пустой, то вызывается диалог сохранения
             else
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -74,18 +83,19 @@ namespace MenuStrip_Practice_MVC.Model
                 {
                     path = saveFileDialog.FileName;
                     File.WriteAllText(path, textbox.Text, Encoding.Default);
+
+                    path = saveFileDialog.FileName;
+
+                    FileInfo fi = new FileInfo(path);
+                    textbox.Text = File.ReadAllText(path, Encoding.Default);
+                    string name = fi.Name;
+
+                    form.Text = $"{name} - Блокнот";
                 }
-
-                path = saveFileDialog.FileName;
-
-                FileInfo fi = new FileInfo(path);
-                textbox.Text = File.ReadAllText(path, Encoding.Default);
-                string name = fi.Name;
-
-                form.Text = $"{name} - Блокнот";
             }
         }
 
+        //Сохранить как
         public static void SaveAs(TextBox textbox)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -100,8 +110,10 @@ namespace MenuStrip_Practice_MVC.Model
             }
         }
 
+        //Печать
         public static void Print()
         {
+            //Создание диалога печати с дополнительными настройками (разрешениями)
             PrintDialog printDialog = new PrintDialog
             {
                 AllowSomePages = true,
@@ -120,11 +132,13 @@ namespace MenuStrip_Practice_MVC.Model
             }
         }
 
+        //Выход
         public static void Exit(Form1 form)
         {
             form.Close();
         }
 
+        //Параметры страницы (для печати)
         public static void PageParams()
         {
             PageSetupDialog pageSetupDialog = new PageSetupDialog
@@ -132,6 +146,7 @@ namespace MenuStrip_Practice_MVC.Model
                 PageSettings = new PageSettings()
             };
 
+            //Установка настройки печати
             if (pageSetupDialog.ShowDialog() == DialogResult.OK)
             {
                 if (printDoc == null)

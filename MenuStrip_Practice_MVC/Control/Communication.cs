@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MenuStrip_Practice_MVC.Control
 {
+    //Статический класс коммуникации для общения между "родительским" и "дочерними" окнами
     public static class Communication
     {
         public static Point MainForm_coords;
@@ -18,7 +19,7 @@ namespace MenuStrip_Practice_MVC.Control
         public static string[] Working_text;
         public static Int32 Cursor_position;
 
-        #region Средства коммуникации между главным окном и окном поиска
+        #region Средства коммуникации между главным окном и окном поиска (замены) 
         public static Int32 Selection_length;
         public static string Search_string = string.Empty;
         #endregion

@@ -12,8 +12,10 @@ using MenuStrip_Practice_MVC;
 
 namespace MenuStrip_Practice_MVC.View
 {
+    //Класс окна поиска по тексту
     public partial class FormFind : Form
     {
+        //Объект главной формы для её модификации без закрытия окна поиска
         public Form1 MainForm { get; set; }
         public FormFind()
         {
@@ -26,6 +28,7 @@ namespace MenuStrip_Practice_MVC.View
             this.MainForm = form;
         }
 
+        //Событие загрузки формы (установка локации окна и вставка текста поиска, если он был ранее введён)
         private void FormFind_Load(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.Manual;
@@ -34,6 +37,7 @@ namespace MenuStrip_Practice_MVC.View
                 textBox1.Text = Communication.Search_string;
         }
 
+        //Событие изменения текста (кнопка поиска недоступна, если в текстбоксе поиска пусто, сохранение текста поиска) 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if ((sender as TextBox).Text.Length > 0)
@@ -44,23 +48,28 @@ namespace MenuStrip_Practice_MVC.View
             Communication.Search_string = (sender as TextBox).Text;
         }
 
+        //Событие клика кнопки закрытия окна
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        //Метод поиска вниз по тексту
         public void SearchDown()
         {
             //Я потратил сутки, пытаясь исправить ошибку выделения, как вдруг узнал, что текстбокс вместо \n использует \r\n
             string allText = string.Join("\r\n", Communication.Working_text);
 
+            //Установка текста для поиска
             string searchText = Communication.Search_string;
+            //Если регистр не важен
             if (!checkBox1.Checked)
             {
                 allText = allText.ToLower();
                 searchText = searchText.ToLower();
             }
 
+            //Переменная, хранящая текст после курсора
             string selectionText = string.Empty;
             if (Communication.Cursor_position < allText.Length)
             {
@@ -70,12 +79,15 @@ namespace MenuStrip_Practice_MVC.View
             //bool check = default(bool); //false
             bool check = true;
 
+            //Если искомая строка есть в тексте
             if (selectionText.Contains(searchText))
             {
                 for (int i = Communication.Cursor_position; i < allText.Length; i++)
                 {
+                    //Проверка на совпадение текста
                     if (allText[i] == searchText[0])
                     {
+                        //Если весь текст совпал, то начинается выделение текста
                         for (int j = 0; j < searchText.Length; j++)
                         {
                             if (allText[i + j] != searchText[j])
@@ -88,6 +100,7 @@ namespace MenuStrip_Practice_MVC.View
 
                         if (check == true)
                         {
+                            //Установка позиции курсора и длины выделения
                             Communication.Cursor_position = i;
                             Communication.Selection_length = searchText.Length;
 
@@ -96,6 +109,7 @@ namespace MenuStrip_Practice_MVC.View
                             parentTextbox.SelectionStart = Communication.Cursor_position;
                             parentTextbox.SelectionLength = Communication.Selection_length;
 
+                            //Фокусировка на главном окне
                             MainForm.Focus();
                             //this.Activate();
                             //MainForm.ActiveControl = MainForm.Controls["textBox1"];
@@ -111,8 +125,10 @@ namespace MenuStrip_Practice_MVC.View
             }
         }
 
+        //Метод поиска вверх по тексту
         public void SearchUp()
         {
+            //Превращение массива текста в строку с разделителем
             string allText = string.Join("\r\n", Communication.Working_text);
 
             string searchText = Communication.Search_string;
@@ -164,6 +180,7 @@ namespace MenuStrip_Practice_MVC.View
             }
         }
 
+        //Событие клика по кнопке поиска
         private void button1_Click(object sender, EventArgs e)
         {
             if (radioButton2.Checked == true)

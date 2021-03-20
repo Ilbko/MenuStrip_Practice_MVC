@@ -3,7 +3,7 @@
 //     Этот код создан программой.
 //     Исполняемая версия:4.0.30319.42000
 //
-//     Изменения в этом файле могут привести к неправильной работе и будут потеряны в случае
+//     Изменения в этом Fileе могут привести к неправильной работе и будут потеряны в случае
 //     повторной генерации кода.
 // </auto-generated>
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ namespace MenuStrip_Practice_MVC.Properties {
     /// </summary>
     // Этот класс создан автоматически классом StronglyTypedResourceBuilder
     // с помощью такого средства, как ResGen или Visual Studio.
-    // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
+    // Чтобы добавить или Delete член, измените File .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

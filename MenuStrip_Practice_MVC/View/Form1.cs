@@ -22,49 +22,49 @@ namespace MenuStrip_Practice_MVC
             this.ContextMenuStrip = contextMenuStrip1;
         }
 
-        private void создатьToolStripMenuItem_Click(object sender, EventArgs e) => this.Text = "Безымянный - Блокнот";
+        private void CreateToolStripMenuItem_Click(object sender, EventArgs e) => this.Text = "Безымянный - Блокнот";
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void новоеОкноToolStripMenuItem_Click(object sender, EventArgs e) => logic.NewWindow();
+        private void NewWindowToolStripMenuItem_Click(object sender, EventArgs e) => logic.NewWindow();
          //new Form1().Show();
         
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.OpenFile(textBox1, this);
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.OpenFile(textBox1, this);
 
         private void textBox1_TextChanged(object sender, EventArgs e) => logic.TextChanged(this, (sender as TextBox),
-        отменитьToolStripMenuItem, вырезатьToolStripMenuItem, копироватьToolStripMenuItem, вставитьToolStripMenuItem,
-        удалитьToolStripMenuItem, найтиToolStripMenuItem, найтиДалееToolStripMenuItem, найтиРанееToolStripMenuItem);
+        UndoToolStripMenuItem, CutToolStripMenuItem, CopyToolStripMenuItem, PasteToolStripMenuItem,
+        DeleteToolStripMenuItem, FindToolStripMenuItem, FindFurtherToolStripMenuItem, FindEarlierToolStripMenuItem);
 
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.SaveFile(textBox1, this);
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.SaveFile(textBox1, this);
 
-        private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.SaveAs(textBox1);
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.SaveAs(textBox1);
 
-        private void отменитьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Undo(textBox1);
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e) => logic.Undo(textBox1);
 
-        private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Cut(textBox1);
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e) => logic.Cut(textBox1);
 
-        private void копироватьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Copy(textBox1);
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e) => logic.Copy(textBox1);
 
-        private void вставитьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Paste(textBox1);
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e) => logic.Paste(textBox1);
 
-        private void печатьToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.Print();
+        private void PrintToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.Print();
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.Exit(this);
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.Exit(this);
 
-        private void параметрыСтраницыToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.PageParams();
+        private void PageParametersToolStripMenuItem_Click(object sender, EventArgs e) => MyModel.PageParams();
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Delete(textBox1);
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e) => logic.Delete(textBox1);
 
-        private void textBox1_MouseMove(object sender, MouseEventArgs e) => logic.TextBoxMouse(textBox1, поискСПомощьюBingToolStripMenuItem);
+        private void textBox1_MouseMove(object sender, MouseEventArgs e) => logic.TextBoxMouse(textBox1, SearchWithBingToolStripMenuItem);
 
-        private void поискСПомощьюBingToolStripMenuItem_Click(object sender, EventArgs e) => logic.BingSearch(textBox1);
+        private void SearchWithBingToolStripMenuItem_Click(object sender, EventArgs e) => logic.BingSearch(textBox1);
 
-        private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e) => logic.WordWrap(textBox1, перейтиToolStripMenuItem, переносПоСловамToolStripMenuItem);
+        private void WordWrapToolStripMenuItem_Click(object sender, EventArgs e) => logic.WordWrap(textBox1, GoToToolStripMenuItem, WordWrapToolStripMenuItem);
 
-        private void перейтиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GoToToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Communication.MainForm_coords = this.Location;
             logic.MoveTo(textBox1);
@@ -72,19 +72,19 @@ namespace MenuStrip_Practice_MVC
             Communication.Cursor_position = 0;
         }
 
-        private void выделитьВсеToolStripMenuItem_Click(object sender, EventArgs e) => logic.SelectAll(textBox1);
+        private void SelectВсеToolStripMenuItem_Click(object sender, EventArgs e) => logic.SelectAll(textBox1);
 
-        private void времяИДатаToolStripMenuItem_Click(object sender, EventArgs e) => logic.TimeAndData(textBox1);
+        private void TimeAndDataToolStripMenuItem_Click(object sender, EventArgs e) => logic.TimeAndData(textBox1);
 
-        private void шрифтToolStripMenuItem_Click(object sender, EventArgs e) => logic.FontSelection(textBox1);
+        private void FontToolStripMenuItem_Click(object sender, EventArgs e) => logic.FontSelection(textBox1);
 
-        private void найтиToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 0);
+        private void FindToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(this.Location, this, 0);
 
-        private void найтиДалееToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 1);
+        private void FindFurtherToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(this.Location, this, 1);
 
-        private void найтиРанееToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(textBox1, this.Location, this, 2);
+        private void FindEarlierToolStripMenuItem_Click(object sender, EventArgs e) => Command.Command_FindForm(this.Location, this, 2);
 
-        private void заменитьToolStripMenuItem_Click(object sender, EventArgs e) => logic.Replace(this.Location, this);
+        private void ReplaceToolStripMenuItem_Click(object sender, EventArgs e) => logic.Replace(this.Location, this);
 
         //internal void TextBoxRedirection() => logic.TextSelection(textBox1, Communication.Cursor_position, Communication.Selection_length);
     }
